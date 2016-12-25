@@ -1,0 +1,29 @@
+<input type="button" onclick="javascript:getNumber()" value="Sacar bolilla"><br>
+<h1 id="numero"></h1>
+
+<script>
+var numero = document.getElementById("numero");
+var lista = [];
+
+function init(){
+
+  for (var i = 1; i <= 90; i++) {
+    lista.push(i);
+  }
+}
+init();
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getNumber(){
+  var rand = getRandomIntInclusive(0, (lista.length-1));
+  var resultado = lista.splice(rand, 1);
+  numero.innerHTML = resultado;
+  console.log(resultado);
+}
+
+</script>
